@@ -35,8 +35,9 @@
 		<property name="hbm2ddl.auto">create</property>
 
 		<!-- Mapeamento das Entidades -->
+		<mapping class="br.com.rafael.drogariavd.domain.Cidade"/>
 		<mapping class="br.com.rafael.drogariavd.domain.Estado"/>
-		
+		<mapping class="br.com.rafael.drogariavd.domain.Fabricante" />
 		
 	</session-factory>
 
