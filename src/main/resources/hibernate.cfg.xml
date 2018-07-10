@@ -36,8 +36,10 @@
 
 		<!-- Mapeamento das Entidades -->
 		<mapping class="br.com.rafael.drogariavd.domain.Cidade"/>
+		<mapping class="br.com.rafael.drogariavd.domain.Cliente"/>	
 		<mapping class="br.com.rafael.drogariavd.domain.Estado"/>
 		<mapping class="br.com.rafael.drogariavd.domain.Fabricante"/>
+		<mapping class="br.com.rafael.drogariavd.domain.Pessoa"/>
 		<mapping class="br.com.rafael.drogariavd.domain.Produto"/>
 				
 	</session-factory>
