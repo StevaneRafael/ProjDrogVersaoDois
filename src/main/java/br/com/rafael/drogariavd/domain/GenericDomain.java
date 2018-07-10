@@ -1,4 +1,4 @@
-package br.pro.rafael.drogariavd.domain;
+package br.com.rafael.drogariavd.domain;
 
 import java.io.Serializable;
 
