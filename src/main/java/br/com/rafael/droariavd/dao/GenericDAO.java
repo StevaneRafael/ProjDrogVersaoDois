@@ -1,7 +1,9 @@
 package br.com.rafael.droariavd.dao;
 
 import java.lang.reflect.ParameterizedType;
+import java.util.List;
 
+import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
@@ -31,8 +33,21 @@ public class GenericDAO<Entidade> {
 			}
 		} finally {
 			sessao.close();
-		}
-		
-		
+		}		
 	}
+	
+	@SuppressWarnings("unchecked")
+	public List<Entidade> listar(){
+		Session sessao =  HibernateUtil.getFabricaDeSessoes().openSession();
+		try {
+			Criteria consulta = sessao.createCriteria(classe);
+			List<Entidade> resultado = consulta.list();
+			return resultado;
+		} catch (RuntimeException erro) {
+			throw erro;
+		} finally {
+			sessao.close();
+		}
+	}
+	
 }
