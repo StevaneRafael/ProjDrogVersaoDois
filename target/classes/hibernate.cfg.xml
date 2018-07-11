@@ -43,7 +43,7 @@
 		<mapping class="br.com.rafael.drogariavd.domain.Pessoa"/>
 		<mapping class="br.com.rafael.drogariavd.domain.Produto"/>
 		<mapping class="br.com.rafael.drogariavd.domain.Usuario"/>
-		
+		<mapping class="br.com.rafael.drogariavd.domain.Venda"/>
 
 				
 	</session-factory>
