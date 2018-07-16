@@ -63,6 +63,7 @@ public class CidadeDAOTest {
 	}
 
 	@Test
+	@Ignore
 	public void excluir() {
 		Long codigo = 4L;
 
@@ -81,4 +82,46 @@ public class CidadeDAOTest {
 		System.out.println();
 	}
 
+	@Test
+	public void editar() {
+		Long codigoCidade = 3L;
+		Long codigoEstado = 3L;
+		
+		EstadoDAO estadoDAO = new EstadoDAO();
+		Estado estado = estadoDAO.buscar(codigoEstado);
+		
+		System.out.println("Código do Estado: " + estado.getCodigo());
+		System.out.println("Sigla do Estado: " + estado.getSigla());
+		System.out.println("Nome do Estado: " + estado.getNome());
+		
+		System.out.println();
+		
+		CidadeDAO cidadeDAO = new CidadeDAO();
+		Cidade cidade = cidadeDAO.buscar(codigoCidade);		
+		
+		System.out.println("Cidade A ser editada:");
+		System.out.println("Código da cidade: " + cidade.getCodigo());
+		System.out.println("Nome da Cidade: " + cidade.getNome());
+		System.out.println("Código do Estado: " + cidade.getEstado().getCodigo());
+		System.out.println("Sigla do Estado: " + cidade.getEstado().getSigla());
+		System.out.println("Nome do Estado: " + cidade.getEstado().getNome());
+
+		System.out.println();
+		
+		cidade.setNome("Pacajus");
+		cidade.setEstado(estado);
+		
+		cidadeDAO.editar(cidade);
+		
+		System.out.println("Cidade Editada:");
+		System.out.println("Código da cidade: " + cidade.getCodigo());
+		System.out.println("Nome da Cidade: " + cidade.getNome());
+		System.out.println("Código do Estado: " + cidade.getEstado().getCodigo());
+		System.out.println("Sigla do Estado: " + cidade.getEstado().getSigla());
+		System.out.println("Nome do Estado: " + cidade.getEstado().getNome());
+		
+		System.out.println("Cidade Editada!");
+		
+	}
+	
 }
