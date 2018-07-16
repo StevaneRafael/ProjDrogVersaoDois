@@ -83,19 +83,14 @@ public class CidadeDAOTest {
 	}
 
 	@Test
+	@Ignore
 	public void editar() {
 		Long codigoCidade = 3L;
 		Long codigoEstado = 3L;
 		
 		EstadoDAO estadoDAO = new EstadoDAO();
 		Estado estado = estadoDAO.buscar(codigoEstado);
-		
-		System.out.println("Código do Estado: " + estado.getCodigo());
-		System.out.println("Sigla do Estado: " + estado.getSigla());
-		System.out.println("Nome do Estado: " + estado.getNome());
-		
-		System.out.println();
-		
+			
 		CidadeDAO cidadeDAO = new CidadeDAO();
 		Cidade cidade = cidadeDAO.buscar(codigoCidade);		
 		

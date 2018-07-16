@@ -10,10 +10,9 @@ import br.com.rafael.drogariavd.domain.Fabricante;
 
 public class FabricanteDAOTest {
 	@Test
-	@Ignore
 	public void salvar() {
 		Fabricante fabricante = new Fabricante();
-		fabricante.setDescricao("ExtraFarma");
+		fabricante.setDescricao("Aché");
 
 		FabricanteDAO fabricanteDAO = new FabricanteDAO();
 		fabricanteDAO.salvar(fabricante);
@@ -22,8 +21,8 @@ public class FabricanteDAOTest {
 	@Test
 	@Ignore
 	public void listar() {
-		FabricanteDAO FabricanteDAO = new FabricanteDAO();
-		List<Fabricante> resultado = FabricanteDAO.listar();
+		FabricanteDAO fabricanteDAO = new FabricanteDAO();
+		List<Fabricante> resultado = fabricanteDAO.listar();
 
 		System.out.println("Total de Registros Encontrados: " + resultado.size());
 
