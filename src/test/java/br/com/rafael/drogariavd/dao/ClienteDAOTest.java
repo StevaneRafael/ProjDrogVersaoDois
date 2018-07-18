@@ -7,8 +7,8 @@ import java.util.List;
 import org.junit.Ignore;
 import org.junit.Test;
 
-import br.com.rafael.droariavd.dao.ClienteDAO;
-import br.com.rafael.droariavd.dao.PessoaDAO;
+import br.com.rafael.drogariavd.dao.ClienteDAO;
+import br.com.rafael.drogariavd.dao.PessoaDAO;
 import br.com.rafael.drogariavd.domain.Cliente;
 import br.com.rafael.drogariavd.domain.Pessoa;
 

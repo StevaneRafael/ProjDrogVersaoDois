@@ -1,4 +1,4 @@
-package br.com.rafael.droariavd.dao;
+package br.com.rafael.drogariavd.dao;
 
 import java.lang.reflect.ParameterizedType;
 import java.util.List;

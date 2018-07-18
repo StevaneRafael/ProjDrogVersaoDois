@@ -6,8 +6,8 @@ import java.util.List;
 import org.junit.Ignore;
 import org.junit.Test;
 
-import br.com.rafael.droariavd.dao.FabricanteDAO;
-import br.com.rafael.droariavd.dao.ProdutoDAO;
+import br.com.rafael.drogariavd.dao.FabricanteDAO;
+import br.com.rafael.drogariavd.dao.ProdutoDAO;
 import br.com.rafael.drogariavd.domain.Fabricante;
 import br.com.rafael.drogariavd.domain.Produto;
 

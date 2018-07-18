@@ -5,8 +5,8 @@ import java.util.List;
 import org.junit.Ignore;
 import org.junit.Test;
 
-import br.com.rafael.droariavd.dao.CidadeDAO;
-import br.com.rafael.droariavd.dao.EstadoDAO;
+import br.com.rafael.drogariavd.dao.CidadeDAO;
+import br.com.rafael.drogariavd.dao.EstadoDAO;
 import br.com.rafael.drogariavd.domain.Cidade;
 import br.com.rafael.drogariavd.domain.Estado;
 

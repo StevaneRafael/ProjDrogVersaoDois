@@ -2,8 +2,8 @@ package br.com.rafael.drogariavd.dao;
 
 import org.junit.Test;
 
-import br.com.rafael.droariavd.dao.PessoaDAO;
-import br.com.rafael.droariavd.dao.UsuarioDAO;
+import br.com.rafael.drogariavd.dao.PessoaDAO;
+import br.com.rafael.drogariavd.dao.UsuarioDAO;
 import br.com.rafael.drogariavd.domain.Pessoa;
 import br.com.rafael.drogariavd.domain.Usuario;
 
