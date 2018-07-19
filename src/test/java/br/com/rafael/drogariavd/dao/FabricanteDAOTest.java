@@ -10,6 +10,7 @@ import br.com.rafael.drogariavd.domain.Fabricante;
 
 public class FabricanteDAOTest {
 	@Test
+	@Ignore
 	public void salvar() {
 		Fabricante fabricante = new Fabricante();
 		fabricante.setDescricao("Aché");
@@ -82,5 +83,21 @@ public class FabricanteDAOTest {
 			System.out.println("Registro editado - depois: ");
 			System.out.println(fabricante.getCodigo() + " - " + fabricante.getDescricao());
 		}
+	}
+	
+	
+	@Test
+	public void merge() {
+		//Fabricante fabricante = new Fabricante();
+		//fabricante.setDescricao("Fabricante A");
+
+		//FabricanteDAO fabricanteDAO = new FabricanteDAO();
+		//fabricanteDAO.merge(fabricante);
+		
+		FabricanteDAO fabricanteDAO = new FabricanteDAO();
+		Fabricante fabricante = fabricanteDAO.buscar(4L);
+		
+		fabricante.setDescricao("Fabricante B");
+		fabricanteDAO.merge(fabricante);
 	}
 }
