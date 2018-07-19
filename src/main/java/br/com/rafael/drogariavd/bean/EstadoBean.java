@@ -1,5 +1,7 @@
 package br.com.rafael.drogariavd.bean;
 
+import java.io.Serializable;
+
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 
@@ -7,9 +9,10 @@ import org.omnifaces.util.Messages;
 
 import br.com.rafael.drogariavd.domain.Estado;
 
+@SuppressWarnings("serial")
 @ManagedBean
 @ViewScoped
-public class EstadoBean {
+public class EstadoBean implements Serializable{
 
 	private Estado estado;
 
