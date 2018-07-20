@@ -50,7 +50,7 @@ public class GenericDAO<Entidade> {
 			sessao.close();
 		}
 	}
-
+	
 	@SuppressWarnings("unchecked")
 	public Entidade buscar(Long codigo) {
 		Session sessao = HibernateUtil.getFabricaDeSessoes().openSession();
@@ -65,7 +65,7 @@ public class GenericDAO<Entidade> {
 			sessao.close();
 		}
 	}
-
+	
 	public void excluir(Entidade entidade) {
 		Session sessao = HibernateUtil.getFabricaDeSessoes().openSession();
 		Transaction transacao = null;
@@ -83,7 +83,7 @@ public class GenericDAO<Entidade> {
 			sessao.close();
 		}
 	}
-
+	
 	public void editar(Entidade entidade) {
 		Session sessao = HibernateUtil.getFabricaDeSessoes().openSession();
 		Transaction transacao = null;
@@ -101,7 +101,7 @@ public class GenericDAO<Entidade> {
 			sessao.close();
 		}
 	}
-
+	
 	public void merge(Entidade entidade) {
 		Session sessao = HibernateUtil.getFabricaDeSessoes().openSession();
 		Transaction transacao = null;

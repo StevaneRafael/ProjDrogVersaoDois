@@ -10,11 +10,9 @@
 
 		<!-- Configurações de Conexão com o Banco de Dados -->
 		<property name="connection.driver_class">com.mysql.jdbc.Driver</property>
-		<property name="connection.password">mysql</property>
-
-		<property name="connection.url">jdbc:mysql://localhost/drogaria</property>
+		<property name="connection.url">jdbc:mysql://127.0.0.1:3306/drogaria</property>
 		<property name="connection.username">root</property>
-
+		<property name="connection.password">mysql</property>
 
 		<!-- Pool de Conexões -->
 		<property name="connection.pool_size">1</property>
@@ -35,18 +33,17 @@
 		<property name="hbm2ddl.auto">validate</property>
 
 		<!-- Mapeamento das Entidades -->
-		<mapping class="br.com.rafael.drogariavd.domain.Cidade"/>
-		<mapping class="br.com.rafael.drogariavd.domain.Cliente"/>	
-		<mapping class="br.com.rafael.drogariavd.domain.Estado"/>
-		<mapping class="br.com.rafael.drogariavd.domain.Fabricante"/>
-		<mapping class="br.com.rafael.drogariavd.domain.Funcionario"/>
-		<mapping class="br.com.rafael.drogariavd.domain.ItemVenda"/>				
-		<mapping class="br.com.rafael.drogariavd.domain.Pessoa"/>
-		<mapping class="br.com.rafael.drogariavd.domain.Produto"/>
-		<mapping class="br.com.rafael.drogariavd.domain.Usuario"/>
-		<mapping class="br.com.rafael.drogariavd.domain.Venda"/>
+		<mapping class="br.com.rafael.drogariavd.domain.Cidade" />
+		<mapping class="br.com.rafael.drogariavd.domain.Cliente" />
+		<mapping class="br.com.rafael.drogariavd.domain.Estado" />
+		<mapping class="br.com.rafael.drogariavd.domain.Fabricante" />
+		<mapping class="br.com.rafael.drogariavd.domain.Funcionario" />
+		<mapping class="br.com.rafael.drogariavd.domain.ItemVenda" />
+		<mapping class="br.com.rafael.drogariavd.domain.Pessoa" />
+		<mapping class="br.com.rafael.drogariavd.domain.Produto" />
+		<mapping class="br.com.rafael.drogariavd.domain.Usuario" />
+		<mapping class="br.com.rafael.drogariavd.domain.Venda" />
 
-				
 	</session-factory>
 
 </hibernate-configuration>
