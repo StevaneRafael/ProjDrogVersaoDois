@@ -27,18 +27,18 @@ public class EstadoBean implements Serializable {
 	public void setEstado(Estado estado) {
 		this.estado = estado;
 	}
-	
+
 	public List<Estado> getEstados() {
 		return estados;
 	}
-	
+
 	public void setEstados(List<Estado> estados) {
 		this.estados = estados;
 	}
-	
+
 	@PostConstruct
-	public void listar(){
-		try{
+	public void listar() {
+		try {
 			EstadoDAO estadoDAO = new EstadoDAO();
 			estados = estadoDAO.listar();
 		} catch (RuntimeException erro) {
@@ -65,10 +65,21 @@ public class EstadoBean implements Serializable {
 			erro.printStackTrace();
 		}
 	}
-	
+
 	public void excluir(ActionEvent evento) {
-		estado = (Estado) evento.getComponent().getAttributes().get("estadoSelecionado");
-		Messages.addGlobalInfo("Nome: " + estado.getNome() + " Sigla: " + estado.getSigla());
+		try {
+			estado = (Estado) evento.getComponent().getAttributes().get("estadoSelecionado");
+
+			EstadoDAO estadoDAO = new EstadoDAO();
+			estadoDAO.excluir(estado);
+			
+			estados = estadoDAO.listar();
+			
+			Messages.addGlobalInfo("Estado removido com sucesso!");
+		} catch (RuntimeException erro) {
+			Messages.addGlobalError("Ocorreu um erro ao tentar remover o estado");
+			erro.printStackTrace();
+		}
 	}
 
 }
