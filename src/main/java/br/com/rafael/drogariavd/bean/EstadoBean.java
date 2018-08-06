@@ -56,7 +56,7 @@ public class EstadoBean implements Serializable {
 			EstadoDAO estadoDAO = new EstadoDAO();
 			estadoDAO.merge(estado);
 
-			novo();
+			estado = new Estado();
 			estados = estadoDAO.listar();
 
 			Messages.addGlobalInfo("Estado salvo com sucesso");
@@ -74,16 +74,15 @@ public class EstadoBean implements Serializable {
 			estadoDAO.excluir(estado);
 			
 			estados = estadoDAO.listar();
-			
-			Messages.addGlobalInfo("Estado removido com sucesso!");
+
+			Messages.addGlobalInfo("Estado removido com sucesso");
 		} catch (RuntimeException erro) {
-			Messages.addGlobalError("Ocorreu um erro ao tentar remover o estado");
+			Messages.addFlashGlobalError("Ocorreu um erro ao tentar remover o estado");
 			erro.printStackTrace();
 		}
 	}
 	
-	public void editar(ActionEvent evento) {
+	public void editar(ActionEvent evento){
 		estado = (Estado) evento.getComponent().getAttributes().get("estadoSelecionado");
 	}
-
 }
