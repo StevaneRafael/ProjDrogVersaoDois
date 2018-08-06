@@ -104,4 +104,16 @@ public class CidadeBean implements Serializable {
 			erro.printStackTrace();
 		}
 	}
+	
+	public void editar(ActionEvent evento){
+		try {
+			cidade = (Cidade) evento.getComponent().getAttributes().get("cidadeSelecionada");
+
+			EstadoDAO estadoDAO = new EstadoDAO();
+			estados = estadoDAO.listar();
+		} catch (RuntimeException erro) {
+			Messages.addFlashGlobalError("Ocorreu um erro ao tentar selecionar uma cidade");
+			erro.printStackTrace();
+		}	
+	}
 }
