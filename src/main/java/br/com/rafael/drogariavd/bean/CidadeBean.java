@@ -10,7 +10,9 @@ import javax.faces.bean.ViewScoped;
 import org.omnifaces.util.Messages;
 
 import br.com.rafael.drogariavd.dao.CidadeDAO;
+import br.com.rafael.drogariavd.dao.EstadoDAO;
 import br.com.rafael.drogariavd.domain.Cidade;
+import br.com.rafael.drogariavd.domain.Estado;
 
 
 @SuppressWarnings("serial")
@@ -19,6 +21,7 @@ import br.com.rafael.drogariavd.domain.Cidade;
 public class CidadeBean implements Serializable{
 	private Cidade cidade;
 	private List<Cidade> cidades;
+	private List<Estado> estados;
 	
 	public Cidade getCidade() {
 		return cidade;
@@ -36,6 +39,15 @@ public class CidadeBean implements Serializable{
 		this.cidades = cidades;
 	}
 	
+	public List<Estado> getEstados() {
+		return estados;
+	}
+	
+	public void setEstados(List<Estado> estados) {
+		this.estados = estados;
+	}
+	
+	
 	@PostConstruct
 	public void listar() {
 		try {
@@ -48,6 +60,15 @@ public class CidadeBean implements Serializable{
 	}
 	
 	public void novo() {
-		cidade = new Cidade();		
+		try {
+			cidade = new Cidade();
+			
+			EstadoDAO estadoDAO = new EstadoDAO();
+			estados = estadoDAO.listar();			
+		}catch(RuntimeException erro){
+			Messages.addFlashGlobalError("Ocorreu um erro ao gerar uma nova cidade");
+			erro.printStackTrace();
+		}
+		
 	}
 }
