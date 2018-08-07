@@ -76,26 +76,32 @@
 			<h:panelGrid id="painel" columns="2">
 				<p:outputLabel value="Descrição:" />
 				<p:inputText maxlength="50" size="30"
-					value="#{produtoBean.produto.descricao}" 
-					required="true" requiredMessage="O campo 'Descrição' é obrigatório."/>
+					value="#{produtoBean.produto.descricao}" required="true"
+					requiredMessage="O campo 'Descrição' é obrigatório." />
 
 				<p:outputLabel value="Quantidade:" />
 				<p:inputText maxlength="5" size="10"
-					value="#{produtoBean.produto.quantidade}" 
-					required="true" requiredMessage="O campo 'Quantidade' é obrigatório"
-					converterMessage="Informe um valor válido para o campo 'Quantidade' "/>
+					value="#{produtoBean.produto.quantidade}" required="true"
+					requiredMessage="O campo 'Quantidade' é obrigatório"
+					converterMessage="Informe um valor válido para o campo 'Quantidade' "
+					validatorMessage="Informe um valor entre 0 e 1000 para o campo 'Quantidade' ">
+					<f:validateLongRange minimum="0" maximum="1000" />
+				</p:inputText>
 
 				<p:outputLabel value="Preço:" />
-				<p:inputText maxlength="7" size="10" 
-					value="#{produtoBean.produto.preco}"
-					required="true" requiredMessage="O campo 'Preço' é obrigatório"
-					converterMessage="Informe um valor válido para o campo 'Preço' "/>
+				<p:inputText maxlength="7" size="10"
+					value="#{produtoBean.produto.preco}" required="true"
+					requiredMessage="O campo 'Preço' é obrigatório"
+					converterMessage="Informe um valor válido para o campo 'Preço' "
+					validatorMessage="Informe um valor entre 0.01 e 9999.99 para o campo 'Preço' ">
+					<f:validateDoubleRange minimum="0.01" maximum="9999.99" />
+				</p:inputText>
 
 				<p:outputLabel value="Fabricante:" />
 				<p:selectOneMenu filter="true"
 					value="#{produtoBean.produto.fabricante}"
-					converter="omnifaces.SelectItemsConverter"
-					required="true" requiredMessage="O campo 'Fabricante' é obrigatório.">
+					converter="omnifaces.SelectItemsConverter" required="true"
+					requiredMessage="O campo 'Fabricante' é obrigatório.">
 					<f:selectItem noSelectionOption="true"
 						itemLabel="Selecione um fabricante" />
 					<f:selectItems value="#{produtoBean.fabricantes}" var="fabricante"
