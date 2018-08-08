@@ -7,10 +7,12 @@ import javax.persistence.ManyToOne;
 
 @SuppressWarnings("serial")
 @Entity
-public class Pessoa extends GenericDomain{
-	
+public class Pessoa extends GenericDomain {
 	@Column(length = 50, nullable = false)
 	private String nome;
+	
+	@Column(length = 14, nullable = false)
+	private String cpf;
 	
 	@Column(length = 12, nullable = false)
 	private String rg;
@@ -27,28 +29,36 @@ public class Pessoa extends GenericDomain{
 	@Column(length = 10, nullable = false)
 	private String cep;
 	
-	@Column(length = 35)
+	@Column(length = 10)
 	private String complemento;
 	
 	@Column(length = 13, nullable = false)
 	private String telefone;
-	
+
 	@Column(length = 14, nullable = false)
 	private String celular;
 	
 	@Column(length = 100, nullable = false)
 	private String email;
-
+	
 	@ManyToOne
 	@JoinColumn(nullable = false)
 	private Cidade cidade;
-	
+
 	public String getNome() {
 		return nome;
 	}
 
 	public void setNome(String nome) {
 		this.nome = nome;
+	}
+
+	public String getCpf() {
+		return cpf;
+	}
+
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
 	}
 
 	public String getRg() {
