@@ -74,7 +74,7 @@ public class PessoaBean implements Serializable {
 	public void listar() {
 		try {
 			PessoaDAO pessoaDAO = new PessoaDAO();
-			pessoas = pessoaDAO.listar();
+			pessoas = pessoaDAO.listar("nome");
 		} catch (RuntimeException erro) {
 			Messages.addGlobalError("Ocorreu um erro ao tentar listar as pessoas");
 			erro.printStackTrace();
@@ -85,8 +85,10 @@ public class PessoaBean implements Serializable {
 		try {
 			pessoa = new Pessoa();
 
+			estado = new Estado();
+
 			EstadoDAO estadoDAO = new EstadoDAO();
-			estados = estadoDAO.listar();
+			estados = estadoDAO.listar("nome");
 
 			cidades = new ArrayList<Cidade>();
 
@@ -97,15 +99,60 @@ public class PessoaBean implements Serializable {
 	}
 
 	public void editar(ActionEvent evento) {
+		try {
+			CidadeDAO cidadeDao = new CidadeDAO();
+			cidades = cidadeDao.listar();
 
+			EstadoDAO estadoDao = new EstadoDAO();
+			estados = estadoDao.listar();
+
+			pessoa = (Pessoa) evento.getComponent().getAttributes().get("pessoaSelecionada");
+
+			estado = pessoa.getCidade().getEstado();
+
+		} catch (RuntimeException erro) {
+			Messages.addFlashGlobalError("Ocorreu um erro ao tentar selecionar a pessoa");
+			erro.printStackTrace();
+		}
 	}
 
 	public void salvar() {
+		try {
+			PessoaDAO pessoaDAO = new PessoaDAO();
+			pessoaDAO.merge(pessoa);
 
+			pessoas = pessoaDAO.listar("nome");
+
+			pessoa = new Pessoa();
+
+			estado = new Estado();
+
+			EstadoDAO estadoDAO = new EstadoDAO();
+			estados = estadoDAO.listar();
+
+			cidades = new ArrayList<>();
+
+			Messages.addGlobalInfo("Pessoa salva com sucesso");
+		} catch (RuntimeException erro) {
+			Messages.addGlobalError("Ocorreu um erro ao tentar salvar a pessoa");
+			erro.printStackTrace();
+		}
 	}
 
 	public void excluir(ActionEvent evento) {
+		try {
+			pessoa = (Pessoa) evento.getComponent().getAttributes().get("pessoaSelecionada");
 
+			PessoaDAO pessoaDAO = new PessoaDAO();
+			pessoaDAO.excluir(pessoa);
+
+			pessoas = pessoaDAO.listar("nome");
+
+			Messages.addGlobalInfo("Pessoa removida com sucesso");
+		} catch (RuntimeException erro) {
+			Messages.addFlashGlobalError("Ocorreu um erro ao tentar remover a pessoa");
+			erro.printStackTrace();
+		}
 	}
 
 	public void popular() {
@@ -114,7 +161,7 @@ public class PessoaBean implements Serializable {
 			if (estado != null) {
 				CidadeDAO cidadeDAO = new CidadeDAO();
 				cidades = cidadeDAO.buscarPorEstado(estado.getCodigo());
-			}else {
+			} else {
 				cidades = new ArrayList<>();
 			}
 		} catch (RuntimeException erro) {
