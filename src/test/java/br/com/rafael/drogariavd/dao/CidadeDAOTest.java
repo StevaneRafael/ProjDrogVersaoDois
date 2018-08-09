@@ -120,6 +120,7 @@ public class CidadeDAOTest {
 	}
 	
 	@Test
+	@Ignore
 	public void buscarPorEstado() {
 		Long estadoCodigo = 3L;
 		
