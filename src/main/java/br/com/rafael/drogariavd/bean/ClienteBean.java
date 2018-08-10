@@ -70,4 +70,23 @@ public class ClienteBean implements Serializable{
 			erro.printStackTrace();
 		}
 	}
+	
+	public void salvar() {
+		try {
+			ClienteDAO clienteDAO = new ClienteDAO();
+			clienteDAO.merge(cliente);
+
+			cliente = new Cliente();
+			
+			clientes = clienteDAO.listar("dataCadastro");
+			
+			PessoaDAO pessoaDAO = new PessoaDAO();
+			pessoas = pessoaDAO.listar("nome");
+
+			Messages.addGlobalInfo("Cliente salvo com sucesso");
+		} catch (RuntimeException erro) {
+			Messages.addFlashGlobalError("Ocorreu um erro ao tentar salvar o cliente");
+			erro.printStackTrace();
+		}
+	}
 }
